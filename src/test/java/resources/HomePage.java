@@ -26,7 +26,10 @@ public class HomePage extends Base {
         login.signin().click();
 
     }
-
+/*
+@Author : Swanand
+Git push and pull practice
+ */
     @DataProvider
     public Object[][] data() {
         Object[][] obj = new Object[1][2];
