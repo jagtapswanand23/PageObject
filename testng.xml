@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="PO2020" verbose="1">
+    <test name="PageObject">
+        <classes>
+            <class name="resources.HomePage"/>
+            <class name="resources.ValidateTitle"/>
+            <class name="resources.CatalogueTab"/>
+        </classes>
+    </test>
+</suite>

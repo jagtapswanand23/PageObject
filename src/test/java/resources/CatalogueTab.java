@@ -1,5 +1,6 @@
 package resources;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.LandingPage;
@@ -7,7 +8,7 @@ import pageObjects.LoginPage;
 
 import java.io.IOException;
 
-public class HomePage extends Base {
+public class CatalogueTab extends Base {
 
     @BeforeTest
     public void initialise() throws IOException {
@@ -17,27 +18,20 @@ public class HomePage extends Base {
     }
 
     @Test(dataProvider = "data")
-    public void basePageNavigation(String email, String pass) throws IOException {
+    public void Catalogue(String email, String pass) throws IOException {
+
 
         // Creating first ref of Landing Page
         LandingPage lp = new LandingPage(driver);
         lp.getlogin().click();
-
-        //Second page ref
         LoginPage login = new LoginPage(driver);
         login.emailaddress().sendKeys(email);
         login.password1().sendKeys(pass);
         login.signin().click();
-
-
+        Assert.assertEquals(lp.titleofpage().getText(), "MY ACCOUNT");
+        Assert.assertTrue(lp.Woman().isDisplayed());
     }
 
-    /*
-    @Author : Swanand
-    Git push and pull practice
-    Git pull
-    Feature 1
-     */
     @DataProvider
     public Object[][] data() {
         Object[][] obj = new Object[1][2];
@@ -50,4 +44,5 @@ public class HomePage extends Base {
     public void teardown() {
         driver.close();
     }
+
 }

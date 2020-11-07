@@ -11,20 +11,26 @@ public class LandingPage {
     By sign = By.cssSelector("a.login");
 
     //Inner webelement of login page
-    By title =By.xpath("//h1[text()='My account']");
+    By title = By.xpath("//h1[text()='My account']");
+    By Producttab = By.xpath("//a[@title='Women']");
 
     //initialise the constructor of the chrome
     public LandingPage(WebDriver driver) {
+
         this.driver = driver;
     }
 
-    public WebElement titleofpage(){
+    public WebElement titleofpage() {
         return driver.findElement(title);
+
     }
 
-
     public WebElement getlogin() {
+
         return driver.findElement(sign);
     }
 
+    public WebElement Woman(){
+        return driver.findElement(Producttab);
+    }
 }

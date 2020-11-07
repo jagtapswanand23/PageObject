@@ -8,22 +8,22 @@ public class LoginPage {
     public WebDriver driver;
 
     By email = By.cssSelector("input[id=email]");
-    By password =By.cssSelector("input[id=passwd]");
-    By sigin=By.id("SubmitLogin");
+    By password = By.cssSelector("input[id=passwd]");
+    By sigin = By.id("SubmitLogin");
 
     public LoginPage(WebDriver driver) {
-        this.driver=driver;
+        this.driver = driver;
     }
 
-    public WebElement emailaddress(){
+    public WebElement emailaddress() {
         return driver.findElement(email);
     }
 
-    public WebElement password1(){
+    public WebElement password1() {
         return driver.findElement(password);
     }
 
-    public WebElement signin(){
+    public WebElement signin() {
         return driver.findElement(sigin);
     }
 }

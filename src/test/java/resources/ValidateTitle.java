@@ -1,20 +1,23 @@
 package resources;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.LandingPage;
 import pageObjects.LoginPage;
 
 import java.io.IOException;
 
 public class ValidateTitle extends Base {
-    @Test(dataProvider = "data")
-    public void titleofPage(String email, String pass) throws IOException {
+
+    @BeforeTest
+    public void initialise() throws IOException {
         driver = initialiseDriver();
         driver.get(prop.getProperty("url"));
         driver.manage().window().maximize();
+    }
 
+    @Test(dataProvider = "data")
+    public void titleofPage(String email, String pass) throws IOException {
         // Creating first ref of Landing Page
         LandingPage lp = new LandingPage(driver);
         lp.getlogin().click();
@@ -31,5 +34,10 @@ public class ValidateTitle extends Base {
         obj[0][0] = "vimalsgurav@gmail.com";
         obj[0][1] = "swan123";
         return obj;
+    }
+
+    @AfterTest
+    public void teardown(){
+        driver.close();
     }
 }
