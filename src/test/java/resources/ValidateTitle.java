@@ -14,10 +14,14 @@ public class ValidateTitle extends Base {
         driver = initialiseDriver();
         driver.get(prop.getProperty("url"));
         driver.manage().window().maximize();
+
     }
 
     @Test(dataProvider = "data")
     public void titleofPage(String email, String pass) throws IOException {
+
+
+
         // Creating first ref of Landing Page
         LandingPage lp = new LandingPage(driver);
         lp.getlogin().click();

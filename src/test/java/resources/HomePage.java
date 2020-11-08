@@ -28,8 +28,6 @@ public class HomePage extends Base {
         login.emailaddress().sendKeys(email);
         login.password1().sendKeys(pass);
         login.signin().click();
-
-
     }
 
     /*

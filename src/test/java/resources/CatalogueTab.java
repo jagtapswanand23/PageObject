@@ -21,6 +21,7 @@ public class CatalogueTab extends Base {
     public void Catalogue(String email, String pass) throws IOException {
 
 
+
         // Creating first ref of Landing Page
         LandingPage lp = new LandingPage(driver);
         lp.getlogin().click();
