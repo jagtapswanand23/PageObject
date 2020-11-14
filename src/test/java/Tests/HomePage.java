@@ -1,6 +1,5 @@
 package resources;
 
-import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.LandingPage;
 import pageObjects.LoginPage;
@@ -36,6 +35,12 @@ public class HomePage extends Base {
     Git pull
     Feature 1
      */
+
+    @AfterTest
+    public void teardown() {
+        driver.close();
+    }
+
     @DataProvider
     public Object[][] data() {
         Object[][] obj = new Object[1][2];
@@ -44,8 +49,5 @@ public class HomePage extends Base {
         return obj;
     }
 
-    @AfterTest
-    public void teardown() {
-        driver.close();
-    }
+
 }

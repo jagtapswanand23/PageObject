@@ -1,6 +1,5 @@
 package resources;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.LandingPage;
@@ -21,7 +20,6 @@ public class CatalogueTab extends Base {
     public void Catalogue(String email, String pass) throws IOException {
 
 
-
         // Creating first ref of Landing Page
         LandingPage lp = new LandingPage(driver);
         lp.getlogin().click();
@@ -33,6 +31,11 @@ public class CatalogueTab extends Base {
         Assert.assertTrue(lp.Woman().isDisplayed());
     }
 
+    @AfterTest
+    public void teardown() {
+        driver.close();
+    }
+
     @DataProvider
     public Object[][] data() {
         Object[][] obj = new Object[1][2];
@@ -41,9 +44,5 @@ public class CatalogueTab extends Base {
         return obj;
     }
 
-    @AfterTest
-    public void teardown() {
-        driver.close();
-    }
 
 }

@@ -21,7 +21,6 @@ public class ValidateTitle extends Base {
     public void titleofPage(String email, String pass) throws IOException {
 
 
-
         // Creating first ref of Landing Page
         LandingPage lp = new LandingPage(driver);
         lp.getlogin().click();
@@ -32,6 +31,11 @@ public class ValidateTitle extends Base {
         Assert.assertEquals(lp.titleofpage().getText(), "MY ACCOUNT");
     }
 
+    @AfterTest
+    public void teardown() {
+        driver.close();
+    }
+
     @DataProvider
     public Object[][] data() {
         Object[][] obj = new Object[1][2];
@@ -40,8 +44,5 @@ public class ValidateTitle extends Base {
         return obj;
     }
 
-    @AfterTest
-    public void teardown(){
-        driver.close();
-    }
+
 }
